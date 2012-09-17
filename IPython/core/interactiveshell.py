@@ -2581,7 +2581,7 @@ class InteractiveShell(SingletonConfigurable):
         if self.input_splitter.cell_magic_parts:
             self._current_cell_magic_body = \
                                ''.join(self.input_splitter.cell_magic_parts)
-        cell = self.input_splitter.source_reset()
+        cell = self.input_splitter.source_reset().replace(";;","\n")
 
         with self.builtin_trap:
             prefilter_failed = False
